@@ -22,19 +22,19 @@ void BusBinariaEdad(string Nombre[12], int Edad[12])
 	{
 		mitad = (Inicio + Final) / 2;
 
-		if (Edad[mitad] == dato)
+		if (Edad[mitad] == dato) // revisa si la mitad es lo mismo que el dato buscado
 		{
-			i = true;
+			i = true; // indica que lo encontro
 			break;
 		}
 
-		if (Edad[mitad] > dato)
+		if (Edad[mitad] > dato) // si no revisa si es mayor del dato
 		{
 			Final = mitad - 1;
 			mitad = (Inicio + Final) / 2;
 		}
 
-		if (Edad[mitad] < dato)
+		if (Edad[mitad] < dato) // si no revisa si es menor al dato
 		{
 			Inicio = mitad + 1;
 			mitad = (Inicio + Final) / 2;
@@ -46,7 +46,7 @@ void BusBinariaEdad(string Nombre[12], int Edad[12])
 	}
 	else
 	{
-		cout << "no se encontro el numero" << endl;
+		cout << "no se encontro el numero" << endl; //si no se encuentra en el array imprime
 	}
 
 }
@@ -66,19 +66,19 @@ void BusBinariaNombre(string Nombre[12], int Edad[12])
 	{
 		mitad = (Inicio + Final) / 2;
 
-		if (Nombre[mitad] == dato)
+		if (Nombre[mitad] == dato) // revisa si la mitad es lo mismo que el dato buscado
 		{
 			i = true;
 			break;
 		}
 
-		if (Nombre[mitad] > dato)
+		if (Nombre[mitad] > dato) // si no revisa si es mayor del dato
 		{
 			Final = mitad;
 			mitad = (Inicio + Final) / 2;
 		}
 
-		if (Nombre[mitad] < dato)
+		if (Nombre[mitad] < dato) // si no revisa si es menor al dato
 		{
 			Inicio = mitad;
 			mitad = (Inicio + Final) / 2;
@@ -90,7 +90,7 @@ void BusBinariaNombre(string Nombre[12], int Edad[12])
 	}
 	else
 	{
-		cout << "no se encontro el Nombre" << endl;
+		cout << "no se encontro el Nombre" << endl; // si no se encuentra en el array imprime
 	}
 }
 
@@ -113,7 +113,7 @@ void quickEdad(int Der, int izq, string Nombre[10], int Edad[10])
 		{
 			j--;
 		}
-		if (i <= j)
+		if (i <= j) // ordena con prioridad la edad de los animales
 		{
 			aux1 = Nombre[i];
 			aux2 = Edad[i];
@@ -170,7 +170,7 @@ void quickNombre(int Der, int izq, string Nombre[10], int Edad[10])
 		{
 			j--;
 		}
-		if (i <= j)
+		if (i <= j) // ordena con prioridad los nombres de los animales
 		{
 			aux1 = Nombre[i];
 			aux2 = Edad[i];
@@ -219,6 +219,7 @@ int main()
 	Tigre tigre;
 	Panda panda;
 
+	// inputs de datos
 	cout << "Ave Nombre =" << endl;
 	cin >> aves.Nombre;
 	cout << "Ave Edad =" << endl;
