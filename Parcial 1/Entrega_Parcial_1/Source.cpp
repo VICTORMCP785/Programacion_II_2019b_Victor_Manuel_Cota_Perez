@@ -1,22 +1,19 @@
 #include <iostream>
 #include <string>
-#include "Enum.h"
 #include "Animales.h"
-#include "Mamiferos.h"
-#include "Leon.h"
-#include "Panda.h"
-#include "Tigre.h"
-#include "Oviparos.h"
-#include "Aves.h"
-#include "Cocodrilo.h"
+
 
 using namespace std;
 
-void BusBinariaEdad(string Nombre[7], int Edad[7])
+int n = 0;
+
+void BusBinariaEdad(string Nombre[12], int Edad[12])
 {
 	int Inicio = 1;
 	int Final = 6;
 	int dato;
+	cout << "introduce edad deceada." << endl;
+	cin >> dato;
 	bool i = false;
 	cout << "introduce edad" << endl;
 	int mitad = (Inicio + Final) / 2;
@@ -43,7 +40,6 @@ void BusBinariaEdad(string Nombre[7], int Edad[7])
 			mitad = (Inicio + Final) / 2;
 		}
 	}
-
 	if (i)
 	{
 		cout << Nombre[mitad] << " " << Edad[mitad] << " años" << endl;
@@ -55,12 +51,15 @@ void BusBinariaEdad(string Nombre[7], int Edad[7])
 
 }
 
-void BusBinariaNombre(string Nombre[7], int Edad[7])
+void BusBinariaNombre(string Nombre[12], int Edad[12])
 {
-	bool i = false;
 	int Inicio = 1;
 	int Final = 6;
 	string dato;
+	cout << "introduce edad deceada." << endl;
+	cin >> dato;
+	bool i = false;
+	cout << "introduce edad" << endl;
 	int mitad = (Inicio + Final) / 2;
 
 	while (Inicio <= Final)
@@ -85,9 +84,6 @@ void BusBinariaNombre(string Nombre[7], int Edad[7])
 			mitad = (Inicio + Final) / 2;
 		}
 	}
-
-
-
 	if (i)
 	{
 		cout << Nombre[mitad] << " " << Edad[mitad] << " años" << endl;
@@ -119,51 +115,45 @@ void quickEdad(int Der, int izq, string Nombre[10], int Edad[10])
 		}
 		if (i <= j)
 		{
-			if (Edad[i] == Edad[j])
-			{
-				if (Nombre[i] < Nombre[j])
-				{
-					aux1 = Nombre[i];
-					aux2 = Edad[i];
-					Nombre[i] = Nombre[j];
-					Nombre[j] = aux1;
-					Edad[i] = Edad[j];
-					Edad[j] = aux2;
-				}
-			}
-			else if (Edad[i] < Edad[j])
-			{
-				aux1 = Nombre[i];
-				aux2 = Edad[i];
-				Nombre[i] = Nombre[j];
-				Nombre[j] = aux1;
-				Edad[i] = Edad[j];
-				Edad[j] = aux2;
-			}
+			aux1 = Nombre[i];
+			aux2 = Edad[i];
+			Nombre[i] = Nombre[j];
+			Nombre[j] = aux1;
+			Edad[i] = Edad[j];
+			Edad[j] = aux2;
 			i++;
 			j--;
 		}
 	}
 	if (izq < j)
 	{
-		quickNombre(j, izq, Nombre, Edad);
+		quickEdad(j, izq, Nombre, Edad);
 	}
 	if (i < Der)
 	{
-		quickNombre(Der, i, Nombre, Edad);
+		quickEdad(Der, i, Nombre, Edad);
 	}
 
 	if (n == 0)
 	{
 		n++;
-
+		int eleccion;
+		cout << "1 Buscar por nombre \n2 Buscar por edad" << endl;
+		cin >> eleccion;
+		if (eleccion == 1)
+		{
+			BusBinariaNombre(Nombre, Edad);
+		}
+		else if (eleccion == 2)
+		{
+			BusBinariaEdad(Nombre, Edad);
+		}
 	}
 
 }
 
 void quickNombre(int Der, int izq, string Nombre[10], int Edad[10])
 {
-	int n = 0;
 	int i = izq;
 	int j = Der;
 	string p = Nombre[(izq + Der) / 2];
@@ -182,27 +172,12 @@ void quickNombre(int Der, int izq, string Nombre[10], int Edad[10])
 		}
 		if (i <= j)
 		{
-			if (Nombre[i] == Nombre[j])
-			{
-				if (Edad[i] < Edad[j])
-				{
-					aux1 = Nombre[i];
-					aux2 = Edad[i];
-					Nombre[i] = Nombre[j];
-					Nombre[j] = aux1;
-					Edad[i] = Edad[j];
-					Edad[j] = aux2;
-				}
-			}
-			else if (Nombre[i] < Nombre[j])
-			{
-				aux1 = Nombre[i];
-				aux2 = Edad[i];
-				Nombre[i] = Nombre[j];
-				Nombre[j] = aux1;
-				Edad[i] = Edad[j];
-				Edad[j] = aux2;
-			}
+			aux1 = Nombre[i];
+			aux2 = Edad[i];
+			Nombre[i] = Nombre[j];
+			Nombre[j] = aux1;
+			Edad[i] = Edad[j];
+			Edad[j] = aux2;
 			i++;
 			j--;
 		}
@@ -221,6 +196,7 @@ void quickNombre(int Der, int izq, string Nombre[10], int Edad[10])
 		n++;
 		int eleccion;
 		cout << "1 Buscar por nombre \n2 Buscar por edad" << endl;
+		cin >> eleccion;
 		if (eleccion == 1)
 		{
 			BusBinariaNombre(Nombre, Edad);
@@ -279,6 +255,8 @@ int main()
 
 	int eleccion;
 	cout << "1 ordenar por nombre \n2 ordenar por edad" << endl;
+
+	cin >> eleccion;
 	if (eleccion == 1)
 	{
 		quickNombre(5, 0, arr1, arr2);
