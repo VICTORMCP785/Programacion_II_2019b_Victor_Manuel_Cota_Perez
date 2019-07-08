@@ -1,0 +1,45 @@
+Operador de preprocesos: Son Sentencias que se pueden situar al principio; aunque puede ser situado en cualquier parte la unidad de compilación (tienen validez desde el punto de aparición al final del fichero).
+
+Durante la primera fase de la compilacion, el procesador realiza ciertas modificaciones previas en el codigo fuente.
+
+Ejemplos
+
+inclullendo archivos:
+
+	#include <iostream>;       // L.1:  permisible
+	#include <iostream>        // L.2:  mejor!!
+
+Compilacion condicional:
+
+	#define __WINDOWS__
+
+	#ifdef __WINDOWS__
+	#include <windows.h>
+	#else
+	#include <unistd.h>
+	#endif
+
+Directivas
+
+#Define: sirve para definir macros. Las macros suministran un sistema para la sustitución de palabras, con y sin parámetros.
+
+#undef: Sirve para eliminar definiciones de macros previamente definidas. La definición de la macro se olvida y el identificador queda indefinido.
+
+#if, #elif, #else y #endif: Permiten hacer una compilación condicional de un conjunto de líneas de código.
+
+#ifdef e #ifndef: Estas directivas permiten comprobar si un identificador está o no actualmente definido, es decir, si un #define ha sido previamente procesado para el identificador y si sigue definido.
+
+#error: Esta directiva se suele incluir en sentencias condicionales de preprocesador para detectar condiciones no deseadas durante la compilación. En un funcionamiento normal estas condiciones serán falsas, pero cuando la condición es verdadera, es preferible que el compilador muestre un mensaje de error y detenga la fase de compilación. Para hacer esto se debe introducir esta directiva en una sentencia condicional que detecte el caso no deseado.
+
+#include: sirve para insertar ficheros externos dentro de nuestro fichero de código fuente. Estos ficheros son conocidos como ficheros incluidos, ficheros de cabecera o "headers".
+
+
+
+
+
+
+
+
+
+
+
