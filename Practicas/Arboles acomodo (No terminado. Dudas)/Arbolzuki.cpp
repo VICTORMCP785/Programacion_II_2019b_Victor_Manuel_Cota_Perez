@@ -5,11 +5,11 @@ int i = 0;
 
 Arbolzuki::Arbolzuki()
 {
+
 }
 
 void Arbolzuki::crea_arbolukis2000(Nodo *Raiz, Nodo arr[], int Lim)
 {
-	
 	if (arr[i].Ape < Raiz->Ape)
 	{
 		if (Raiz->Nodizq != nullptr)

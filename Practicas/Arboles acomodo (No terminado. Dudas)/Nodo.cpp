@@ -14,7 +14,7 @@ void Nodo::imprimirPreorder(Nodo *N)
 	{
 		imprimirPreorder(N);
 	}
-	if (N->NodDer)
+	if (N->NodDer != nullptr)
 	{
 		imprimirPreorder(N);
 	}
@@ -28,7 +28,7 @@ void Nodo::imprimirInorder(Nodo *N)
 		imprimirPreorder(N);
 	}
 	cout << N->Ape << " " << N->Nom << " " << N->edad << endl;
-	if (N->NodDer)
+	if (N->NodDer != nullptr)
 	{
 		imprimirPreorder(N);
 	}
@@ -41,7 +41,7 @@ void Nodo::imprimirPostorden(Nodo *N)
 	{
 		imprimirPreorder(N);
 	}
-	if (N->NodDer)
+	if (N->NodDer != nullptr)
 	{
 		imprimirPreorder(N);
 	}
