@@ -1,0 +1,86 @@
+#include "Nodo.h"
+#include "Arbolzuki.h"
+
+void Creaccion_Nodos(Nodo *Raiz)
+{
+	Arbolzuki creacion;
+	Nodo N;
+	cin >> N;
+
+	creacion.crea_arbolukis2000(Raiz, N);
+}
+
+
+
+int main()
+{
+	bool banderuki = true;
+	string eleccion;
+	Nodo N;
+	cout << "1 = crear nodo \n2 = salir" << endl;
+	cin >> eleccion;
+	if (eleccion == "1")
+	{
+		cin >> N;
+		Nodo *Raiz = &N;
+		cout << "1 = crear otro nodo \n2 = dejar de crear nodos \n3 = ver instrucciones" << endl;
+		while (banderuki)
+		{
+			cin >> eleccion;
+			if (eleccion == "1")
+			{
+				Creaccion_Nodos(Raiz);
+			}
+			else if (eleccion == "2")
+			{
+				banderuki = false;
+			}
+			else if (eleccion == "3")
+			{
+				cout << "1 = crear otro nodo \n2 = dejar de crear nodos \n3 = ver instrucciones" << endl;
+			}
+			else
+			{
+				cout << "Numero No valido" << endl;
+			}
+		}
+	}
+	else if( eleccion == "2")
+	{
+		cin.ignore();
+		cin.get();
+		return 0;
+	}
+	else
+	{
+		cout << "Opcion No valida" << endl;
+		main();
+	}
+
+
+
+	/*
+	while (true)
+	{
+		cout << "1 = Preorder \n 2 = Postorder \n 3 = Inorder \n 4 = Salir" << endl;
+		char ele;
+		if (ele = '1')
+		{
+			//Raiz->imprimirPreorder(Raiz);
+		}
+		else if (ele = '2')
+		{
+			//Raiz->imprimirPostorden(Raiz);
+		}
+		else if (ele = '3')
+		{
+			//Raiz->imprimirInorder(Raiz);
+		}
+		else
+		{
+			break;
+		}
+	}
+	*/
+
+}
